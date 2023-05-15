@@ -80,6 +80,6 @@ build/
 /megamek/*.png
 /megamek/*.ps
 /megamek/atlasedImages.txt
-#/megamek/Entity Issues.txt
+/megamek/Entity Issues.txt
 /megamek/apidocs/
 #End MegaMek Other Outputs
