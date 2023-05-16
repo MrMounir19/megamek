@@ -96,17 +96,17 @@ public class VictoryResult implements IResult {
     }
 
     protected void updateHiScore() {
-        // used to calculate winner
-        hiScore = Double.MIN_VALUE;
+        double maxScore = Double.MIN_VALUE;
         for (Double d : playerScore.values()) {
-            if (d > hiScore)
-                hiScore = d;
+            maxScore = Math.max(d, maxScore);
         }
         for (Double d : teamScore.values()) {
-            if (d > hiScore)
-                hiScore = d;
+            maxScore = Math.max(d, maxScore);
         }
+        hiScore = maxScore;
     }
+
+
 
     public void addPlayerScore(int id, double score) {
         playerScore.put(id, score);
