@@ -394,10 +394,7 @@ public final class Player extends TurnOrdered implements IPlayer {
                         if (entity.getOwner() == null) {
                             return false;
                         }
-                        if (ownerId == entity.getOwner().getId()) {
-                            return true;
-                        }
-                        return false;
+                        return ownerId == entity.getOwner().getId();
                     }
                 }); e.hasNext(); ) {
             Entity m = e.next();
@@ -568,15 +565,14 @@ public final class Player extends TurnOrdered implements IPlayer {
     public Vector<Integer> getAirborneVTOL() {
 
         //a vector of unit ids
-        Vector<Integer> units = new Vector<Integer>();
+        Vector<Integer> units = new Vector<>();
         for (Entity entity : game.getEntitiesVector()) {
-            if (entity.getOwner().equals(this)) {
-                if (((entity instanceof VTOL)
-                     || (entity.getMovementMode() == EntityMovementMode.WIGE)) &&
-                    (!entity.isDestroyed()) &&
-                    (entity.getElevation() > 0)) {
-                    units.add(entity.getId());
-                }
+            if (entity.getOwner().equals(this) &&
+                ((entity instanceof VTOL)
+                || (entity.getMovementMode() == EntityMovementMode.WIGE)) &&
+                (!entity.isDestroyed()) &&
+                (entity.getElevation() > 0)) {
+                units.add(entity.getId());
             }
         }
         return units;
