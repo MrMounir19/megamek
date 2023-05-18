@@ -47,11 +47,9 @@ public class ForceVictory implements IVictoryConditions, Serializable {
             for (int i = 0; i < players.size(); i++) {
                 IPlayer player = players.get(i);
 
-                if (player.getId() != victoryPlayerId && !player.isObserver()) {
-                    if (!player.admitsDefeat()) {
-                        forceVictory = false;
-                        break;
-                    }
+                if (player.getId() != victoryPlayerId && !player.isObserver() && !player.admitsDefeat()) {
+                    forceVictory = false;
+                    break;
                 }
             }
         }
@@ -60,11 +58,9 @@ public class ForceVictory implements IVictoryConditions, Serializable {
             for (int i = 0; i < players.size(); i++) {
                 IPlayer player = players.get(i);
 
-                if (player.getTeam() != victoryTeam && !player.isObserver()) {
-                    if (!player.admitsDefeat()) {
-                        forceVictory = false;
-                        break;
-                    }
+                if (player.getTeam() != victoryTeam && !player.isObserver() && !player.admitsDefeat()) {
+                    forceVictory = false;
+                    break;
                 }
             }
         }
