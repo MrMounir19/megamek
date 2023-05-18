@@ -17,7 +17,6 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import megamek.common.IPlayer;
 import megamek.common.Report;
 
@@ -186,8 +185,7 @@ public class VictoryResult implements IResult {
 
     private int[] intify(Integer[] ar) {
         int[] ret = new int[ar.length];
-        for (int i = 0; i < ar.length; i++)
-            ret[i] = ar[i];
+        System.arraycopy(ar, 0, ret, 0, ar.length);
         return ret;
     }
 
