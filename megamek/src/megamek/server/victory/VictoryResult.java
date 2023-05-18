@@ -61,18 +61,23 @@ public class VictoryResult implements IResult {
         double max = Double.MIN_VALUE;
         int maxPlayer = IPlayer.PLAYER_NONE;
         boolean draw = false;
-        for (int i : playerScore.keySet()) {
-            if (playerScore.get(i) == max) {
+        for (HashMap.Entry<Integer, Double> entry : playerScore.entrySet()) {
+            int player = entry.getKey();
+            double score = entry.getValue();
+
+            if (score == max) {
                 draw = true;
             }
-            if (playerScore.get(i) > max) {
+            if (score > max) {
                 draw = false;
-                max = playerScore.get(i);
-                maxPlayer = i;
+                max = score;
+                maxPlayer = player;
             }
         }
-        if (draw)
+
+        if (draw) {
             return IPlayer.PLAYER_NONE;
+        }
         return maxPlayer;
     }
 
@@ -80,18 +85,23 @@ public class VictoryResult implements IResult {
         double max = Double.MIN_VALUE;
         int maxTeam = IPlayer.TEAM_NONE;
         boolean draw = false;
-        for (int i : teamScore.keySet()) {
-            if (teamScore.get(i) == max) {
+        for (HashMap.Entry<Integer, Double> entry : teamScore.entrySet()) {
+            int team = entry.getKey();
+            double score = entry.getValue();
+
+            if (score == max) {
                 draw = true;
             }
-            if (teamScore.get(i) > max) {
+            if (score > max) {
                 draw = false;
-                max = teamScore.get(i);
-                maxTeam = i;
+                max = score;
+                maxTeam = team;
             }
         }
-        if (draw)
+
+        if (draw) {
             return IPlayer.TEAM_NONE;
+        }
         return maxTeam;
     }
 
