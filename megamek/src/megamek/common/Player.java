@@ -496,18 +496,8 @@ public final class Player extends TurnOrdered implements IPlayer {
                     && (bonusHQ == 0) && (entity.getHQIniBonus() > 0)) {
                     bonusHQ = entity.getHQIniBonus();
                 }
-                
-				/*
-				 * REMOVED IN IO. 
-				 * if (game.getOptions().booleanOption(OptionsConstants.
-				 * RPG_MANEI_DOMINI) && (bonusMD == 0) &&
-				 * (entity.getMDIniBonus() > 0)) { bonusMD =
-				 * entity.getMDIniBonus(); }
-				 */
+
                 if (entity.getQuirkIniBonus() > bonusQ) {
-                    //TODO: I am assuming that the quirk initiative bonuses go to the highest,
-                    //rather than being cumulative
-                    //http://www.classicbattletech.com/forums/index.php/topic,52903.new.html#new
                     bonusQ = entity.getQuirkIniBonus();
                 }
             }
