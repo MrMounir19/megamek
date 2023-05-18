@@ -34,7 +34,7 @@ public final class Player extends TurnOrdered implements IPlayer {
     private String name;
     private int id;
 
-    private float elo = 1500;
+    private double elo = 1500;
 
     private int team = TEAM_NONE;
 
@@ -222,10 +222,13 @@ public final class Player extends TurnOrdered implements IPlayer {
     }
 
     @Override
-    public float getElo() { return elo; }
+    public double getElo() { return elo; }
 
     @Override
-    public void setElo(float elo) { this.elo = elo; }
+    public void setElo(double elo) { this.elo = elo; }
+
+    @Override
+    public void addElo(double delta) { this.elo += delta; }
 
     @Override
     public int getTeam() {

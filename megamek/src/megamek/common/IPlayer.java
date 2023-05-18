@@ -90,9 +90,11 @@ public interface IPlayer extends ITurnOrdered {
 
     int getId();
 
-    public float getElo();
+    public double getElo();
 
-    public void setElo(float elo);
+    public void setElo(double elo);
+
+    public void addElo(double delta);
 
     int getTeam();
 
