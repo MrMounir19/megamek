@@ -34,6 +34,8 @@ public final class Player extends TurnOrdered implements IPlayer {
     private String name;
     private int id;
 
+    private float elo = 1500;
+
     private int team = TEAM_NONE;
 
     private boolean done = false; // done with phase
@@ -218,6 +220,12 @@ public final class Player extends TurnOrdered implements IPlayer {
     public int getId() {
         return id;
     }
+
+    @Override
+    public float getElo() { return elo; }
+
+    @Override
+    public void setElo(float elo) { this.elo = elo; }
 
     @Override
     public int getTeam() {
