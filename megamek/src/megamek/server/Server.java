@@ -3020,6 +3020,7 @@ public class Server implements Runnable {
                 GameVictoryEvent gve = new GameVictoryEvent(this, game);
                 game.processGameEvent(gve);
                 transmitGameVictoryEventToAll();
+                updateElos();
                 resetGame();
                 break;
             default:
