@@ -3034,6 +3034,19 @@ public class Server implements Runnable {
         }
     }
 
+    private void updateElos() {
+        Vector<IPlayer> winners = game.getWinners();
+        Vector<IPlayer> losers = game.getLosers();
+        for (IPlayer winner: winners) {
+            winner.addElo(10);
+        }
+
+        for (IPlayer loser: losers) {
+            loser.addElo(-10);
+        }
+
+    }
+
     private void sendSpecialHexDisplayPackets() {
         if (connections == null) {
             return;
