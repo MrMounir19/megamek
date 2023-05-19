@@ -2824,6 +2824,34 @@ public class Game implements Serializable, IGame {
         return player.getTeam() == victoryTeam;
     }
 
+    /**
+     * Returns a list of the winning players.
+     * Best to call during PHASE_VICTORY.
+     */
+    public Vector<IPlayer> getWinners() {
+        Vector<IPlayer> winners = new Vector<>();
+        for (IPlayer player: players) {
+            if (isPlayerVictor(player)) {
+                winners.add(player);
+            }
+        }
+        return winners;
+    }
+
+    /**
+     * Returns a list of the losing players.
+     * Best to call during PHASE_VICTORY.
+     */
+    public Vector<IPlayer> getLosers() {
+        Vector<IPlayer> losers = new Vector<>();
+        for (IPlayer player: players) {
+            if (!isPlayerVictor(player)) {
+                losers.add(player);
+            }
+        }
+        return losers;
+    }
+
     public HashMap<String, Object> getVictoryContext() {
         return victoryContext;
     }

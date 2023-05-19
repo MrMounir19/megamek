@@ -1296,6 +1296,18 @@ public interface IGame {
     abstract boolean isPlayerVictor(IPlayer player);
 
     /**
+     * Returns a list of the winning players.
+     * Best to call during PHASE_VICTORY.
+     */
+    abstract Vector<IPlayer> getWinners();
+
+    /**
+     * Returns a list of the losing players.
+     * Best to call during PHASE_VICTORY.
+     */
+    abstract Vector<IPlayer> getLosers();
+
+    /**
      * Shortcut to isPlayerVictor(Player player)
      */
     abstract boolean isPlayerVictor(int playerId);
