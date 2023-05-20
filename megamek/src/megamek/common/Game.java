@@ -1717,11 +1717,7 @@ public class Game implements Serializable, IGame {
             private Entity friendly = currentEntity;
 
             public boolean accept(Entity entity) {
-                if (coords.equals(entity.getPosition())
-                        && entity.isTargetable() && entity.isEnemyOf(friendly)) {
-                    return true;
-                }
-                return false;
+                return coords.equals(entity.getPosition()) && entity.isTargetable() && entity.isEnemyOf(friendly);
             }
         });
     }
@@ -1763,11 +1759,7 @@ public class Game implements Serializable, IGame {
             private Entity friendly = currentEntity;
 
             public boolean accept(Entity entity) {
-                if (coords.equals(entity.getPosition())
-                        && entity.isTargetable() && !entity.isEnemyOf(friendly)) {
-                    return true;
-                }
-                return false;
+                return coords.equals(entity.getPosition()) && entity.isTargetable() && !entity.isEnemyOf(friendly);
             }
         });
     }
@@ -3123,13 +3115,8 @@ public class Game implements Serializable, IGame {
     }
 
     public boolean isIn8HexRadius(Coords c1, Coords c2) {
-
         // errata says we now always use 8 hex radius
-        if (c2.distance(c1) <= 8) {
-            return true;
-        }
-        return false;
-
+        return c2.distance(c1) <= 8;
     }
 
     /**
