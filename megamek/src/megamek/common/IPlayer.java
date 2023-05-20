@@ -110,7 +110,7 @@ public interface IPlayer extends ITurnOrdered {
 
     boolean isObserver();
 
-    void setSeeAll(boolean see_all);
+    void setSeeAll(boolean seeAll);
 
     // This simply returns the value, without checking the observer flag
     boolean getSeeAll();
