@@ -405,9 +405,9 @@ public class Game implements Serializable, IGame {
                 continue;
             }
             if (!useTeamInit || (player.getTeam() == IPlayer.TEAM_NONE)) {
-                Team new_team = new Team(IPlayer.TEAM_NONE);
-                new_team.addPlayer(player);
-                initTeams.addElement(new_team);
+                Team newTeam = new Team(IPlayer.TEAM_NONE);
+                newTeam.addPlayer(player);
+                initTeams.addElement(newTeam);
             }
         }
 
