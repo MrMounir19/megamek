@@ -5208,6 +5208,7 @@ public class Server implements Runnable {
                         case 5:
                             table = ToHitData.SIDE_RIGHT;
                             break;
+                        default:
                     }
                     elevation = nextElevation;
                     if (entity instanceof Tank) {
@@ -5300,6 +5301,7 @@ public class Server implements Runnable {
                         case 5:
                             table = ToHitData.SIDE_RIGHT;
                             break;
+                        default:
                     }
                     elevation = nextElevation;
                     addReport(crashVTOLorWiGE((VTOL) entity, false, true,
@@ -14009,6 +14011,7 @@ public class Server implements Runnable {
                         case 3:
                             maxDist = 2;
                             break;
+                        default:
                     // Anything above is the same as the default
                     }
                 }
@@ -16438,7 +16441,8 @@ public class Server implements Runnable {
                 r.add(target.getDisplayName());
                 addReport(r);
                 break;
-            // TODO : add a default: case and handle it appropriately.
+            // TODO : handle default case appropriately.
+            default:
         }
     }
 
@@ -19135,6 +19139,7 @@ public class Server implements Runnable {
                 case EntityWeightClass.WEIGHT_ASSAULT:
                     mod = -2;
                     break;
+                default:
             }
             String reportStr;
             if (mod > 0) {
@@ -19635,6 +19640,7 @@ public class Server implements Runnable {
                                     case 6:
                                     case 7:
                                         startup += 1;
+                                    default:
                                 }
                             }
                             int suRoll = Compute.d6(2);
@@ -19708,6 +19714,7 @@ public class Server implements Runnable {
                                 case 6:
                                 case 7:
                                     shutdown += 1;
+                                default:
                             }
                         }
                         int shutdownRoll = Compute.d6(2);
@@ -20435,6 +20442,7 @@ public class Server implements Runnable {
                                 case EntityWeightClass.WEIGHT_ASSAULT:
                                     weightMod = -2;
                                     break;
+                                default:
                             }
                             if ((entity instanceof Mech) && entity.isSuperHeavy()) {
                                 weightMod = -4;
@@ -25041,6 +25049,7 @@ public class Server implements Runnable {
                     }
                 }
                 break;
+            default:
         }
         return reports;
     }
@@ -25263,6 +25272,7 @@ public class Server implements Runnable {
                     reports.addElement(r);
                 }
                 break;
+            default:
         } // End switch( cs.getType() )
 
         // Shaded hits cause pilot damage.
@@ -25945,6 +25955,7 @@ public class Server implements Runnable {
                 r.subject = aero.getId();
                 reports.add(r);
                 break;
+            default:
         }
         return reports;
     }
@@ -26404,6 +26415,7 @@ public class Server implements Runnable {
                     tank.setStabiliserHit(VTOL.LOC_ROTOR);
                 }
                 break;
+            default:
         }
         return reports;
     }
@@ -27632,6 +27644,7 @@ public class Server implements Runnable {
                                     game.addPSR(new PilotingRollData(entity.getId(), 0,
                                             "hip actuator hit"));
                                     break;
+                                default:
                             }
                         }
                     }
@@ -29029,6 +29042,7 @@ public class Server implements Runnable {
             case Terrains.FIRE_LVL_INFERNO_IV:
                 r.messageId = 3004;
                 break;
+            default:
         }
 
         // report it
@@ -31561,6 +31575,7 @@ public class Server implements Runnable {
                         (SpecialHexDisplay) packet.getObject(1));
                 sendSpecialHexDisplayPackets();
                 break;
+            default:
         }
     }
 
@@ -35687,6 +35702,7 @@ public class Server implements Runnable {
                             entity.getId());
                     reportId = 3515;
                     break;
+                default:
                 // TODO : command-detonated mines
                 // case 2:
             }
