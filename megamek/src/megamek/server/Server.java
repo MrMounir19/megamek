@@ -23718,7 +23718,7 @@ public class Server implements Runnable {
                 int armorType = passenger.getArmorType(nextPassHit.getLocation());
                 boolean armorDamageReduction = false;
                 if (((armorType == EquipmentType.T_ARMOR_BA_REACTIVE)
-                        && ((hit.getGeneralDamageType() == HitData.DAMAGE_MISSILE)))
+                        && (hit.getGeneralDamageType() == HitData.DAMAGE_MISSILE))
                         || (hit.getGeneralDamageType() == HitData.DAMAGE_ARMOR_PIERCING_MISSILE)) {
                     armorDamageReduction = true;
                 }
@@ -24652,7 +24652,7 @@ public class Server implements Runnable {
             if (entity instanceof BattleArmor) {
                 // It takes 25% casualties, rounded up.
                 BattleArmor myBA = (BattleArmor) entity;
-                int numDeaths = (int) (Math.ceil(((myBA.getNumberActiverTroopers())) / 4.0));
+                int numDeaths = (int) (Math.ceil((myBA.getNumberActiverTroopers()) / 4.0));
                 for (int x = 0; x < numDeaths; x++) {
                     vDesc.addAll(applyCriticalHit(entity, 0, null, false, 0, false));
                 }
@@ -34433,7 +34433,7 @@ public class Server implements Runnable {
                             && (entity.getElevation() == hex.terrainLevel(Terrains.BRIDGE_ELEV));
                     return ((entity.getMovementMode() == EntityMovementMode.TRACKED)
                             || (entity.getMovementMode() == EntityMovementMode.WHEELED)
-                            || ((entity.getMovementMode() == EntityMovementMode.HOVER)))
+                            || (entity.getMovementMode() == EntityMovementMode.HOVER))
                             && entity.isImmobile() && (hex.terrainLevel(Terrains.WATER) > 0)
                             && !onBridge && !(entity.hasWorkingMisc(MiscType.F_FULLY_AMPHIBIOUS))
                             && !(entity.hasWorkingMisc(MiscType.F_FLOTATION_HULL));
@@ -35172,7 +35172,7 @@ public class Server implements Runnable {
         int bldgAbsorbs = 0;
         if ((bldg != null)
                 && !(flak && (((altitude > hex.terrainLevel(Terrains.BLDG_ELEV))
-                || (altitude > hex.terrainLevel(Terrains.BRIDGE_ELEV)))))) {
+                || altitude > hex.terrainLevel(Terrains.BRIDGE_ELEV))))) {
             bldgAbsorbs = bldg.getAbsorbtion(coords);
             if (!((ammo != null) && (ammo.getMunitionType() == AmmoType.M_FLECHETTE))) {
                 int actualDamage = damage;
