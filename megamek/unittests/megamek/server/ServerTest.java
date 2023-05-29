@@ -26,9 +26,24 @@ public class ServerTest {
     }
     
     @Test
-    public void TestForceVictoryPlayer() {
+    public void testForceVictoryPlayer() {
         server.forceVictory(mounir);
         TestCase.assertEquals(server.getGame().getVictoryPlayerId(), 1);
+    }
+
+    @Test
+    public void testEloUpdate() {
+        mounir.setTeam(1);
+        rinoum.setTeam(2);
+        TestCase.assertEquals(1500.0, mounir.getElo());
+        TestCase.assertEquals(1500.0, rinoum.getElo());
+        server.getGame().setVictoryPlayerId(1);
+        server.getGame().setVictoryTeam(1);
+        server.getGame().setForceVictory(true);
+
+        server.updateElos();
+        TestCase.assertEquals(1510.0, mounir.getElo());
+        TestCase.assertEquals(1490.0, rinoum.getElo());
     }
 
 }
